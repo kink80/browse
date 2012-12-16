@@ -1,0 +1,64 @@
+<head>
+  <title>browse</title>
+</head>
+
+<body>
+  {{> main}}
+</body>
+
+<template name="main">
+  {{#if loggedIn }}
+    {{> documentlist}}
+    {{> footer}}
+  {{else}}
+    {{> login}}
+    {{> register}}
+  {{/if}}
+</template>
+
+<template name="documentlist">
+  <div>
+  <p> Total number of documents: {{count}} </p>
+  <ul>
+  {{#each documents}}
+    <li>{{name}}
+      <p>
+       <a href="#" class="delete">Delete</a>
+      </p>
+    </li>
+  {{/each}}
+  </ul>
+  <input id="docname" type="text" name="name" />
+  <button id="adddoc" type="button">Add</button>
+  </div>
+</template>
+
+<template name="footer">
+  <div class="footer">
+    <button id="logout" type="button">Logout</button>
+  </div>
+</template>
+
+<template name="login">
+  <div class="login">
+    <p>Login</p>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" />
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" />
+    <button id="login" type="button">Login</button>
+  </div>
+</template>
+
+<template name="register">
+  <div class="register">
+   <p>Register</p>
+   <label for="rusername">Username</label>
+   <input id="rusername" name="rusername" type="text" />
+   <label for="remail">Email</label>
+   <input id="remail" name="remail" type="text" />
+   <label for="rpassword" >Password</label>
+   <input id="rpassword" name="rpassword" type="password" />
+   <button id="register" type="button">Register</button>
+  </div>
+</template>
